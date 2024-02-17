@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 from decouple import config
 
@@ -77,12 +78,26 @@ AUTH_USER_MODEL = 'cvitae.Account'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DATABASE_NAME', default='', cast=str),
+	    'USER': config('DATABASE_USER', default='', cast=str),
+	    'PASSWORD': config('DATABASE_PASSWORD', default='', cast=str),
+	    'HOST': config('DATABASE_HOST', default='', cast=str),
+	    'PORT': config('DATABASE_POST', default='', cast=str),
     }
 }
+
 
 
 # Password validation
@@ -139,6 +154,9 @@ MESSAGE_TAGS ={
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
 
 
        
@@ -148,3 +166,6 @@ EMAIL_PORT          = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER     = config('EMAIL_HOST_USER')    
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')    
 EMAIL_USE_TLS       = config('EMAIL_USE_TLS', cast=bool)
+
+
+
