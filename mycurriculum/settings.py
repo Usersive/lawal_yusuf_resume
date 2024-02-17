@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'mycurriculum.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,25 +78,25 @@ AUTH_USER_MODEL = 'cvitae.Account'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DATABASE_NAME', default='', cast=str),
-	    'USER': config('DATABASE_USER', default='', cast=str),
-	    'PASSWORD': config('DATABASE_PASSWORD', default='', cast=str),
-	    'HOST': config('DATABASE_HOST', default='', cast=str),
-	    'PORT': config('DATABASE_POST', default='', cast=str),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('DATABASE_NAME', default='', cast=str),
+# 	    'USER': config('DATABASE_USER', default='', cast=str),
+# 	    'PASSWORD': config('DATABASE_PASSWORD', default='', cast=str),
+# 	    'HOST': config('DATABASE_HOST', default='', cast=str),
+# 	    'PORT': config('DATABASE_POST', default='', cast=str),
+#     }
+# }
 
 
 
@@ -138,10 +138,14 @@ STATIC_URL = '/static/'
 
 
 STATIC_URL = "static/"
-STATIC_ROOT=BASE_DIR /'static'
-STATICFILES_DIRS=[
-    'mycurriculum/static',
-]
+# STATIC_ROOT=BASE_DIR /'static'
+# STATICFILES_DIRS=[
+#     'mycurriculum/static',
+# ]
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
 
@@ -154,8 +158,7 @@ MESSAGE_TAGS ={
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
 
 
 
