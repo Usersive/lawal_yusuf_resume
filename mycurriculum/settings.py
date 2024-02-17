@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
-DATABASE_URL="postgresql://postgres:DbFBgce-D3a34a5ABC--AadD*feG52A1@monorail.proxy.rlwy.net:32732/railway"
+# DATABASE_URL="postgresql://postgres:DbFBgce-D3a34a5ABC--AadD*feG52A1@monorail.proxy.rlwy.net:32732/railway"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
@@ -105,9 +105,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
 	    'USER': 'postgres',
-	    'PASSWORD': 'DbFBgce-D3a34a5ABC--AadD*feG52A1',
-	    'HOST': 'monorail.proxy.rlwy.net',
-	    'PORT': '32732',
+	    'PASSWORD': 'AbbAA6*CFc1Gbac1Bgb654F6d*Ff-4ce',
+	    'HOST': 'viaduct.proxy.rlwy.net',
+	    'PORT': '39040',
     }
 }
 
