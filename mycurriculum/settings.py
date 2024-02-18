@@ -96,29 +96,6 @@ else:
 
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': config('DATABASE_NAME', default='', cast=str),
-# 	    'USER': config('DATABASE_USER', default='', cast=str),
-# 	    'PASSWORD': config('DATABASE_PASSWORD', default='', cast=str),
-# 	    'HOST': config('DATABASE_HOST', default='', cast=str),
-# 	    'PORT': config('DATABASE_POST', default='', cast=str),
-#     }
-# }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-# 	    'USER': 'postgres',
-# 	    'PASSWORD': 'AbbAA6*CFc1Gbac1Bgb654F6d*Ff-4ce',
-# 	    'HOST': 'viaduct.proxy.rlwy.net',
-# 	    'PORT': '39040',
-#     }
-# }
-
 
 
 
@@ -160,10 +137,10 @@ STATIC_URL = '/static/'
 
 
 STATIC_URL = "static/"
-# STATIC_ROOT=BASE_DIR /'static'
-# STATICFILES_DIRS=[
-#     'mycurriculum/static',
-# ]
+STATIC_ROOT=BASE_DIR /'static'
+STATICFILES_DIRS=[
+    'mycurriculum/static',
+]
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
