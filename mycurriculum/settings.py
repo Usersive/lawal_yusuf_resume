@@ -36,6 +36,7 @@ if DEBUG:
 else:
     ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'lawal-resume.onrender.com']
 
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'lawal-resume.onrender.com']
 
 # Application definition
 
