@@ -81,12 +81,12 @@ AUTH_USER_MODEL = 'cvitae.Account'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 
@@ -102,16 +102,16 @@ AUTH_USER_MODEL = 'cvitae.Account'
 # }
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-	    'USER': 'postgres',
-	    'PASSWORD': 'AbbAA6*CFc1Gbac1Bgb654F6d*Ff-4ce',
-	    'HOST': 'viaduct.proxy.rlwy.net',
-	    'PORT': '39040',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+# 	    'USER': 'postgres',
+# 	    'PASSWORD': 'AbbAA6*CFc1Gbac1Bgb654F6d*Ff-4ce',
+# 	    'HOST': 'viaduct.proxy.rlwy.net',
+# 	    'PORT': '39040',
+#     }
+# }
 
 
 
