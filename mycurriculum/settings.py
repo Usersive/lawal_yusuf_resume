@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 # DATABASE_URL="postgresql://postgres:DbFBgce-D3a34a5ABC--AadD*feG52A1@monorail.proxy.rlwy.net:32732/railway"
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True')=='True'
+DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "lawal-resume.onrender.com"]
 
