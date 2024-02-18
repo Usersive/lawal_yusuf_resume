@@ -30,11 +30,11 @@
               <div class="boxs mail_listing">
                 <div class="inbox-center table-responsive">
                   <table class="table table-hover">
-                    <thead>
+                    <thead class="bg-blue-grey">
                       <tr>
                         <th colspan="1">
-                          <div class="inbox-header">
-                            Compose Message
+                          <div class="nav-link ">
+                            <font color="white"> Compose Message</font>
                           </div>
                         </th>
                       </tr>
@@ -45,16 +45,17 @@
                 <div class="row">
                 
                   <div class="col-lg-12">
-                    <form method="POST" action="{% url 'email_compose' %}" class="composeForm">
+
+                     <form method="POST" action="{% url 'email_compose' %}" class="composeForm">
                       {% csrf_token %}
                       <div class="form-group">
                         <div class="form-line">
-                          <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>
+                          <input type="text" name="sender_name" class="form-control" placeholder="Full Name" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <div class="form-line">
-                          <input type="text" name="email" class="form-control" placeholder="Email" required>
+                          <input type="text" name="sender_email" class="form-control" placeholder="Email" required>
                         </div>
                       </div>
                       <div class="form-group">
@@ -65,7 +66,14 @@
                       <button type="submit" class="btn btn-info btn-border-radius waves-effect">Send</button>
                     </form>
                   </div>
-                  <div class="col-lg-12">
+
+                  {% comment %} <form method = "post" action ="{% url 'email_compose'%}">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit">Send</button>
+                  </form> {% endcomment %}
+                  
+
                     
                   </div>
                 </div>

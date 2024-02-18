@@ -2,27 +2,28 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
+from .forms import EmailForm
 
 from cvitae.models import Education, Hobbies, LeadershipRole, PersonalDetail, Portfolio, Professional_member, ProfileUpdate, Project, Skill, SocialLink
 # Create your views here.
 
 
-def email_compose(request):
-    if request.method == "POST":
-        full_name = request.POST['full_name']
-        email = request.POST['email']
-        message = request.POST['message']
-        send_mail(
-        full_name,
-        message,
-        settings.EMAIL_HOST_USER,
-        [email])
+# def email_compose(request):
+#     if request.method == "POST":
+#         full_name = request.POST['full_name']
+#         email = request.POST['email']
+#         message = request.POST['message']
+#         send_mail(
+#         full_name,
+#         message,
+#         settings.EMAIL_HOST_USER,
+#         [email], fail_silently=False)
         
         
-        messages.success(request, "Message sent successfully!")
-        return redirect('email_compose')
+#         messages.success(request, "Message sent successfully!")
+#         return redirect('email_compose')
     
-    return render(request, 'cvitae/email_compose.html')
+#     return render(request, 'cvitae/email_compose.html')
 
 
 def profile(request):
@@ -103,3 +104,25 @@ def project(request):
         'project_detail':project_detail,
     }
     return render(request, 'cvitae/project.html', context)
+
+
+
+
+
+def email_compose(request):
+    if request.method =='POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            sender_name = form.cleaned_data['sender_name']
+            sender_email = form.cleaned_data['sender_email']
+            message = form.cleaned_data['message']
+            
+            email_content = f"Name: {sender_name}\nEmail: {sender_email}\n\nMessage:\n{message}"
+            
+            send_mail('HOREN RESUME', email_content, sender_email, ['horenyu@gmail.com'])
+            messages.success(request, "Message sent successfully!")
+            return redirect('email_compose')
+            # return render (request, 'cvitae/email_compose.html', {'sender_name': sender_name})
+    else:
+        form = EmailForm()
+    return render(request, 'cvitae/email_compose.html', {'form':form})
