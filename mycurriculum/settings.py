@@ -90,7 +90,7 @@ AUTH_USER_MODEL = 'cvitae.Account'
 
 if not DEBUG:
     DATABASES={
-    'default': dj_database_url.parse('postgres://resume_db_l5qh_user:bSmdaJQVVwNzPswQpmI4HWbq06NOBdg7@dpg-cna1ken79t8c73bd5vhg-a.oregon-postgres.render.com/resume_db_l5qh')
+    "default": dj_database_url.parse(os.environ.get('DATABASE_URL')),
     
 }
 else:
