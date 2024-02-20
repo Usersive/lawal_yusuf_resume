@@ -35,7 +35,7 @@ DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
     
 # ALLOWED_HOSTS = ['lawal-resume.onrender.com']
-ALLOWED_HOSTS = ['54.191.253.12', 'lawal-resume.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'lawal-resume.onrender.com']
 
 
 # Application definition
@@ -68,7 +68,7 @@ ROOT_URLCONF = 'mycurriculum.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
