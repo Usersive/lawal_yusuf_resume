@@ -34,7 +34,7 @@ SECRET_KEY =('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
     
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1:8000', "lawal-resume.onrender.com"]
 # ALLOWED_HOSTS = ['*']
 
 
