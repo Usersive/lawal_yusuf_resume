@@ -106,8 +106,18 @@ AUTH_USER_MODEL = 'cvitae.Account'
 #     }
 # }
     
-DATABASES={
-    'default': dj_database_url.parse('postgres://resume_db_l5qh_user:bSmdaJQVVwNzPswQpmI4HWbq06NOBdg7@dpg-cna1ken79t8c73bd5vhg-a.oregon-postgres.render.com/resume_db_l5qh')
+# DATABASES={
+#     'default': dj_database_url.parse('')
+#     conn_max_age=600,
+# }
+
+# Replace the SQLite DATABASES configuration with PostgreSQL:
+DATABASES = {
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgres://resume_db_l5qh_user:bSmdaJQVVwNzPswQpmI4HWbq06NOBdg7@dpg-cna1ken79t8c73bd5vhg-a.oregon-postgres.render.com/resume_db_l5qh',
+        conn_max_age=600
+    )
 }
 # DATABASES ={
 #     'default': {
