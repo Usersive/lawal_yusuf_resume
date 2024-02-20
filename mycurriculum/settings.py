@@ -31,14 +31,14 @@ environ.Env.read_env()
 SECRET_KEY =('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # if DEBUG:
 #     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
     
 # else:
 #     ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'lawal-resume.onrender.com']
     
-ALLOWED_HOSTS = ['lawal-resume.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "lawal-resume.onrender.com"]
 # ALLOWED_HOSTS = ['*']
 
 
