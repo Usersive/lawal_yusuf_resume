@@ -38,7 +38,7 @@ DEBUG = False
 # else:
 #     ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'lawal-resume.onrender.com']
     
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'lawal-resume.onrender.com']
+ALLOWED_HOSTS = ['lawal-resume.onrender.com']
 # ALLOWED_HOSTS = ['*']
 
 
@@ -92,12 +92,7 @@ AUTH_USER_MODEL = 'cvitae.Account'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# if not DEBUG:
-# DATABASES ={
-#     "default": dj_database_url.parse(os.environ.get("postgres://resume_db_xxjr_user:ubHwSpJTQQfjD7Vba0KyIC6FkrCWgaPz@dpg-cn8nnfa1hbls73dc2960-a.oregon-postgres.render.com/resume_db_xxjr"))
-# }
 
-# else:
 
 # DATABASES = {
 #     'default': {
@@ -105,31 +100,14 @@ AUTH_USER_MODEL = 'cvitae.Account'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+dj_database_url=os.environ.get('DATABASE_URL')    
+DATABASES={
+    'default': dj_database_url.parse('dj_database_url')
     
-# DATABASES={
-#     'default': dj_database_url.parse('')
-#     conn_max_age=600,
-# }
-
-# Replace the SQLite DATABASES configuration with PostgreSQL:
-DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgres://resume_db_l5qh_user:bSmdaJQVVwNzPswQpmI4HWbq06NOBdg7@dpg-cna1ken79t8c73bd5vhg-a.oregon-postgres.render.com/resume_db_l5qh',
-        conn_max_age=600
-    )
 }
-# DATABASES ={
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'resumedb',
-#         'USER': 'resumedb_prk2_user',
-#         'PASSWORD': 'krZMT2qfby0k3levlJVTYRcg7em4TigP',
-#         'HOST': 'dpg-cn9sqr8cmk4c73a1u03g-a',
-#         'PORT': '5432',
-#             }
-    
-# }
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
