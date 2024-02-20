@@ -32,11 +32,7 @@ SECRET_KEY =('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True')=="True"
-# if DEBUG:
-#     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-    
-# else:
-#     ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'lawal-resume.onrender.com']
+
     
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "lawal-resume.onrender.com"]
 # ALLOWED_HOSTS = ['*']
@@ -92,18 +88,21 @@ AUTH_USER_MODEL = 'cvitae.Account'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-   
-DATABASES={
+if not DEBUG:
+    DATABASES={
     'default': dj_database_url.parse('postgres://resume_db_l5qh_user:bSmdaJQVVwNzPswQpmI4HWbq06NOBdg7@dpg-cna1ken79t8c73bd5vhg-a.oregon-postgres.render.com/resume_db_l5qh')
     
 }
+else:
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+   
+
 
 
 
@@ -140,11 +139,9 @@ USE_TZ = True
 
 
 
-STATIC_URL = '/static/'
-
 
 STATIC_URL = "static/"
-STATIC_ROOT=BASE_DIR /'static'
+# STATIC_ROOT=BASE_DIR /'static'
 # STATICFILES_DIRS=[
 #     'mycurriculum/static',
 # ]
