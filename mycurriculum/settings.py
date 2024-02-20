@@ -34,7 +34,7 @@ SECRET_KEY =('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
     
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "lawal-resume.onrender.com"]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'lawal-resume.onrender.com']
 # ALLOWED_HOSTS = ['*']
 
 
@@ -145,10 +145,10 @@ STATIC_URL = "static/"
 # STATICFILES_DIRS=[
 #     'mycurriculum/static',
 # ]
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
