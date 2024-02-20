@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 from decouple import config
 import dj_database_url 
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,20 +25,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
+env = environ.Env()
+environ.Env.read_env()
 
-
-SECRET_KEY = os.environ.get('SECRET_KEY', default='z7d)idn$fm+l@*c(yl_=8a-=7q7*(n^(&9@g*eki8#tqh4^i0q')
+SECRET_KEY =('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
-
-if DEBUG:
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+DEBUG = False
+# if DEBUG:
+#     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
     
-else:
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'lawal-resume.onrender.com']
+# else:
+#     ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'lawal-resume.onrender.com']
     
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'lawal-resume.onrender.com']
+# ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 
@@ -89,24 +92,34 @@ AUTH_USER_MODEL = 'cvitae.Account'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if not DEBUG:
-    DATABASES ={
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-    }
+# if not DEBUG:
+# DATABASES ={
+#     "default": dj_database_url.parse(os.environ.get("postgres://resume_db_xxjr_user:ubHwSpJTQQfjD7Vba0KyIC6FkrCWgaPz@dpg-cn8nnfa1hbls73dc2960-a.oregon-postgres.render.com/resume_db_xxjr"))
+# }
 
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+# else:
 
-# if 'DJANGO_DB_ON_RENDER' in os.environ:
-#     import dj_database_url
-#     DATABASES['default'] = dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+    
+DATABASES={
+    'default': dj_database_url.parse('postgres://resume_db_l5qh_user:bSmdaJQVVwNzPswQpmI4HWbq06NOBdg7@dpg-cna1ken79t8c73bd5vhg-a.oregon-postgres.render.com/resume_db_l5qh')
+}
+# DATABASES ={
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'resumedb',
+#         'USER': 'resumedb_prk2_user',
+#         'PASSWORD': 'krZMT2qfby0k3levlJVTYRcg7em4TigP',
+#         'HOST': 'dpg-cn9sqr8cmk4c73a1u03g-a',
+#         'PORT': '5432',
+#             }
+    
+# }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -139,16 +152,6 @@ USE_TZ = True
 
 
 
-if not DEBUG:
-    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-    # and renames the files with unique names for each version to support long-term caching
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
 
