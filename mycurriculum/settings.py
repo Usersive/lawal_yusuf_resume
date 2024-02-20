@@ -137,7 +137,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-
+'''
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
@@ -188,7 +188,7 @@ LOGGING = {
 }
 
 
-
+'''
 
 
 
