@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cvitae',
-    # 'admin_honeypot',
+    'admin_honeypot',
 ]
 
 MIDDLEWARE = [
@@ -144,35 +144,16 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static',]
 STORAGES = {
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
 }
 
 
 
-# STATIC_URL = '/static/'
-
-# if not DEBUG:
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
-# STATIC_URL = "/static/"
-# STATIC_ROOT=BASE_DIR /'static'
-# STATICFILES_DIRS=[
-#     'mycurriculum/static',
-# ]
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+# MEDIA_ROOT = os.path.join(BASE_DIR, '/media') 
 MEDIA_ROOT = '/media/'
+MEDIA_ROOT = BASE_DIR, '/uploads' 
 
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS ={
@@ -191,6 +172,28 @@ EMAIL_PORT          = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER     = config('EMAIL_HOST_USER')    
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')    
 EMAIL_USE_TLS       = config('EMAIL_USE_TLS', cast=bool)
+
+
+
+
+
+
+# if not DEBUG:
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+# STATIC_ROOT=BASE_DIR /'static'
+# STATICFILES_DIRS=[
+#     'mycurriculum/static',
+# ]
+
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
