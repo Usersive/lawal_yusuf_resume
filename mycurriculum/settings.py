@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cvitae',
-    'admin_honeypot',
+    # 'admin_honeypot',
 ]
 
 MIDDLEWARE = [

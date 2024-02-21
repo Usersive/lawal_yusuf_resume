@@ -21,7 +21,7 @@ from django.urls import path, include
 from .import views
 
 urlpatterns = [
-    path('fakeadmin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    # path('fakeadmin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path('horenadmin/', admin.site.urls),
     path('', views.index, name='index'),
     path('cvitae/', include('cvitae.urls')),
