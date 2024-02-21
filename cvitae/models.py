@@ -73,7 +73,7 @@ class ProfileUpdate(models.Model):
     first_name      = models.CharField(max_length=50)
     middle_name     = models.CharField(max_length=50)
     last_name       = models.CharField(max_length=50)
-    image           = models.ImageField(null=True, blank=True, upload_to='profileimage/')
+    image           = models.ImageField(null=True, blank=True, upload_to='images/')
     email           = models.EmailField(max_length=100)
     location        = models.CharField(max_length=50)
     short_bio       = models.CharField(max_length=50)
@@ -159,7 +159,7 @@ class Project(models.Model):
 class Portfolio(models.Model):
     title   = models.CharField(max_length=30)
     description = models.CharField(max_length=200)
-    image   = models.ImageField(null=True, blank=True, upload_to='portfolioimage/')
+    image   = models.ImageField(null=True, blank=True, upload_to='images/')
     
     def __str__(self):
         return self.title
