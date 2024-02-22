@@ -35,7 +35,7 @@ DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
     
 # ALLOWED_HOSTS = ['127.0.0.1']
-ALLOWED_HOSTS = ['lawal-resume.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'lawal-resume.onrender.com']
 
 
 # Application definition
@@ -150,17 +150,28 @@ USE_TZ = True
 
 
 
+# STATIC_ROOT=BASE_DIR /'static'
+STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'assets'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+# STATICFILES_DIRS = [BASE_DIR / 'static',]
+# STORAGES = {
+#     "staticfiles": {
+#         "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+#     },
+# }
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [BASE_DIR / 'static',]
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-    },
-}
 
 
+# STATIC_ROOT=BASE_DIR /'static'
+# STATICFILES_DIRS=[
+#     'mycurriculum/static',
+# ]
+
+
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '/media') 
@@ -196,16 +207,6 @@ EMAIL_USE_TLS       = config('EMAIL_USE_TLS', cast=bool)
 
 
 
-# STATIC_ROOT=BASE_DIR /'static'
-# STATICFILES_DIRS=[
-#     'mycurriculum/static',
-# ]
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
