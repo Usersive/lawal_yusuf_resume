@@ -153,14 +153,14 @@ USE_TZ = True
 # STATIC_ROOT=BASE_DIR /'static'
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'assets'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 # STATICFILES_DIRS = [BASE_DIR / 'static',]
-# STORAGES = {
-#     "staticfiles": {
-#         "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-#     },
-# }
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
 
 
 
