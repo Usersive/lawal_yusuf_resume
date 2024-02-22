@@ -89,16 +89,7 @@ AUTH_USER_MODEL = 'cvitae.Account'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env("DB_NAME"),
-#         'USER': env("DB_USER"),
-#         'PASSWORD': env("DB_PASSWORD"),
-#         'HOST': env("DB_HOST"),
-#         'PORT': env("DB_PORT"),
-#     }
-# }
+
 
 if not DEBUG:
     DATABASES={
@@ -152,19 +143,20 @@ USE_TZ = True
 
 # STATIC_ROOT=BASE_DIR /'static'
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'assets'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-# STATICFILES_DIRS = [BASE_DIR / 'static',]
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-    },
-}
-
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = BASE_DIR / 'static'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+# STATICFILES_DIRS = [BASE_DIR / 'static',]
+# STORAGES = {
+#     "staticfiles": {
+#         "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+#     },
+# }
+
+
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_ROOT=BASE_DIR /'static'
 # STATICFILES_DIRS=[
 #     'mycurriculum/static',
