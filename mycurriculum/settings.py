@@ -105,16 +105,6 @@ else:
         }
     }
    
-# Replace the SQLite DATABASES configuration with PostgreSQL:
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         # Replace this value with your local database's connection string.
-#         default= dj_database_url.parse(os.environ.get('DATABASE_URL')),
-#         # default='postgres://resume_database_user:0tsOa3VGm6iAxL3sQQYjnjVQwWv7ihbi@dpg-cng61kda73kc73de5sj0-a.oregon-postgres.render.com/resume_database',
-#         conn_max_age=600
-#     )
-# }
-
 
 
 # Password validation
@@ -154,6 +144,13 @@ if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
