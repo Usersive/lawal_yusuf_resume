@@ -92,10 +92,9 @@ AUTH_USER_MODEL = 'cvitae.Account'
 
 
 # if not DEBUG:
-DATABASES={
-"default": dj_database_url.parse('postgres://resume_database_user:0tsOa3VGm6iAxL3sQQYjnjVQwWv7ihbi@dpg-cng61kda73kc73de5sj0-a.oregon-postgres.render.com/resume_database'),
-
-}    
+# DATABASES={
+# "default": dj_database_url.parse(config('DATABASE_URL')),
+# }    
 # else:
 
 #     DATABASES = {
@@ -104,7 +103,25 @@ DATABASES={
 #             'NAME': str(BASE_DIR / 'db.sqlite3'),
 #         }
 #     }
-   
+
+DATABASES = {
+    "default": dj_database_url.config(
+        default="postgres://resume_database_user:0tsOa3VGm6iAxL3sQQYjnjVQwWv7ihbi@dpg-cng61kda73kc73de5sj0-a.oregon-postgres.render.com/resume_database"
+        
+    )
+}
+
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "resume_database",
+#         "USER": "resume_database_user",
+#         "PASSWORD": "0tsOa3VGm6iAxL3sQQYjnjVQwWv7ihbi",
+#         "HOST": "dpg-cng61kda73kc73de5sj0-a",
+#         "PORT": "5432",
+#     }
+# }
 
 
 
