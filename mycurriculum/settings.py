@@ -144,11 +144,11 @@ USE_TZ = True
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-    },
-}
+# STORAGES = {
+#     "staticfiles": {
+#         "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+#     },
+# }
 STATIC_URL = '/static/'
 STATIC_ROOT=BASE_DIR /'static'
 # STATICFILES_DIRS=[
@@ -182,18 +182,5 @@ EMAIL_PORT          = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER     = config('EMAIL_HOST_USER')    
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')    
 EMAIL_USE_TLS       = config('EMAIL_USE_TLS', cast=bool)
-
-
-
-
-
-
-# if not DEBUG:
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
-
-
 
 
