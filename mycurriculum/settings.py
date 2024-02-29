@@ -41,12 +41,12 @@ ALLOWED_HOSTS = ['127.0.0.1', 'lawal-resume.onrender.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'whitenoise.runserver_nostatic',
-     "django.contrib.staticfiles",
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.staticfiles',
     'django.contrib.messages',
     'cvitae',
     'admin_honeypot',
@@ -101,10 +101,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'NAME': str(BASE_DIR / 'db.sqlite3'),
         }
     }
    
+
 
 
 # Password validation
@@ -138,31 +139,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = 'static/'
 
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-STATICFILES_DIRS=[
-    'mycurriculum/static',
-]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
-STATICFILES_DIRS = [BASE_DIR / "static"]
-
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR /'media'
 
 
 
@@ -173,6 +150,28 @@ MESSAGE_TAGS ={
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+STATIC_URL = 'static/'
+STATICFILES_DIRS = BASE_DIR/'staticfiles'
+
+STATICFILES_DIRS=[
+    'mycurriculum/static',
+]
+STATIC_ROOT=BASE_DIR /'static'
+STATIC_ROOT=BASE_DIR /'staticfiles'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR /'media'
+
+
+
+
+
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 
 <div class="loader"></div>
 <div id="app">
@@ -19,15 +19,17 @@
         </ul>
       </div>
       <ul class="navbar-nav navbar-right">
-        {% for image in edit_profile%}
+
+    
+        {% for link in edit_profile %}
         <li class="dropdown"><a href="#" data-toggle="dropdown"
             {% comment %} class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{{image.image.url}}" {% endcomment %}
-            class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{% static 'img/passport.png'%}"
+             class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{% static 'img/passport.png'%}"
               class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
         
-          <div class="dropdown-menu dropdown-menu-right pullDown">
-            <div class="dropdown-title">Hello {{image.firstname}}</div>
-            {%endfor%}
+            <div class="dropdown-menu dropdown-menu-right pullDown">
+            <div class="dropdown-title">Hello {{i.firstname}}</div>
+          {% endfor %}
             <a href="{% url 'index'%}" class="dropdown-item has-icon"> <i class="far
                                       fa-user"></i> Profile
             </a> <a href="#settings" class="dropdown-item has-icon"  data-toggle="tab"> <i class="fas fa-cog"></i>
