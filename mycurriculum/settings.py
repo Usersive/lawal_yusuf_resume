@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -105,7 +105,15 @@ else:
         }
     }
    
-
+# Replace the SQLite DATABASES configuration with PostgreSQL:
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         # Replace this value with your local database's connection string.
+#         default= dj_database_url.parse(os.environ.get('DATABASE_URL')),
+#         # default='postgres://resume_database_user:0tsOa3VGm6iAxL3sQQYjnjVQwWv7ihbi@dpg-cng61kda73kc73de5sj0-a.oregon-postgres.render.com/resume_database',
+#         conn_max_age=600
+#     )
+# }
 
 
 
@@ -140,25 +148,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-
-
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-    },
-}
 STATIC_URL = '/static/'
-STATIC_ROOT=BASE_DIR /'static'
-# STATICFILES_DIRS=[
-#     'mycurriculum/static',
-# ]
-
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_ROOT=BASE_DIR /'static'
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
