@@ -68,7 +68,7 @@ ROOT_URLCONF = 'mycurriculum.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join('templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -141,18 +141,14 @@ USE_TZ = True
 
 
 
-# STATIC_ROOT=BASE_DIR /'static'
-# STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-# STATICFILES_DIRS = [BASE_DIR / 'static',]
-# STORAGES = {
-#     "staticfiles": {
-#         "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-#     },
-# }
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
 STATIC_URL = '/static/'
 STATIC_ROOT=BASE_DIR /'static'
 STATICFILES_DIRS=[
@@ -163,17 +159,11 @@ STATICFILES_DIRS=[
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_ROOT=BASE_DIR /'static'
-# STATICFILES_DIRS=[
-#     'mycurriculum/static',
-# ]
-
 
 
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media') 
-MEDIA_ROOT = '/media/'
-MEDIA_ROOT = BASE_DIR, '/uploads' 
+MEDIA_ROOT = BASE_DIR /'media'
 
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS ={
