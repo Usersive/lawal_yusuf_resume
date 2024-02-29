@@ -91,25 +91,25 @@ AUTH_USER_MODEL = 'cvitae.Account'
 
 
 
-# if not DEBUG:
-# DATABASES={
-# "default": dj_database_url.parse(config('DATABASE_URL')),
-# }    
-# else:
+if not DEBUG:
+    DATABASES={
+    "default": dj_database_url.parse(os.environ.get('DATABASE_URL')),
+    }    
+else:
 
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': str(BASE_DIR / 'db.sqlite3'),
-#         }
-#     }
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
-DATABASES = {
-    "default": dj_database_url.config(
-        default="postgres://resume_database_user:0tsOa3VGm6iAxL3sQQYjnjVQwWv7ihbi@dpg-cng61kda73kc73de5sj0-a.oregon-postgres.render.com/resume_database"
+# DATABASES = {
+#     "default": dj_database_url.config(
+#         default="postgres://resume_database_user:0tsOa3VGm6iAxL3sQQYjnjVQwWv7ihbi@dpg-cng61kda73kc73de5sj0-a.oregon-postgres.render.com/resume_database"
         
-    )
-}
+#     )
+# }
 
 
 # DATABASES = {
