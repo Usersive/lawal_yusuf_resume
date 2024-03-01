@@ -168,13 +168,14 @@ MESSAGE_TAGS ={
 STATIC_URL = 'static/'
 STATICFILES_DIRS = BASE_DIR/'staticfiles'
 
-STATICFILES_DIRS=[
-    'mycurriculum/static',
-]
+# STATICFILES_DIRS=[
+#     'mycurriculum/static',
+# ]
 STATIC_ROOT=BASE_DIR /'static'
 STATIC_ROOT=BASE_DIR /'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = '/media/'
