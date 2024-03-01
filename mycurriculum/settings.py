@@ -91,30 +91,27 @@ AUTH_USER_MODEL = 'cvitae.Account'
 
 
 
-if not DEBUG:
-    DATABASES={
-    "default": dj_database_url.parse(os.environ.get('DATABASE_URL')),
-    }    
-else:
+# if not DEBUG:
+#     DATABASES={
+#     "default": dj_database_url.parse(os.environ.get('DATABASE_URL')),
+#     }    
+# else:
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
 
-# DATABASES = {
-#     "default": dj_database_url.config(
-#         default="postgres://resume_database_user:0tsOa3VGm6iAxL3sQQYjnjVQwWv7ihbi@dpg-cng61kda73kc73de5sj0-a.oregon-postgres.render.com/resume_database"
-        
-#     )
-# }
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600),
+}
 
 
 # DATABASES = {
 #     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
 #         "NAME": os.environ.get('DB_NAME'),
 #         "USER": os.environ.get('DB_USER'),
 #         "PASSWORD": os.environ.get('DB_PASSWORD'),
