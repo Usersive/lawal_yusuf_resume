@@ -114,11 +114,11 @@ else:
 
 # DATABASES = {
 #     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": "resume_database",
-#         "USER": "resume_database_user",
-#         "PASSWORD": "0tsOa3VGm6iAxL3sQQYjnjVQwWv7ihbi",
-#         "HOST": "dpg-cng61kda73kc73de5sj0-a",
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": os.environ.get('DB_NAME'),
+#         "USER": os.environ.get('DB_USER'),
+#         "PASSWORD": os.environ.get('DB_PASSWORD'),
+#         "HOST": os.environ.get('DB_HOST'),
 #         "PORT": "5432",
 #     }
 # }
