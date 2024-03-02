@@ -105,7 +105,11 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
+    
+    
+DATABASES = {
+'default': dj_database_url.parse(env('DATABASE_URL'))
+} 
 
 
 
@@ -171,8 +175,8 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # MEDIA SETTINGS
 
-# CLOUDINARY_URL =config('CLOUDINARY_URL') 
-CLOUDINARY_URL='cloudinary://748638977192752:mMjS7xsAMKoM-jfo0GAF2rxpxQQ@dgys5gddp'
+CLOUDINARY_URL = config('CLOUDINARY_URL') 
+# CLOUDINARY_URL='cloudinary://748638977192752:mMjS7xsAMKoM-jfo0GAF2rxpxQQ@dgys5gddp'
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUD_NAME'),

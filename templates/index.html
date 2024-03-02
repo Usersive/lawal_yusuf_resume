@@ -20,10 +20,10 @@
                   <div class="card-body">
                     <div class="author-box-center">
 
-                      {% comment %} {% for image in edit_profile %} {% endcomment %}
+                      {% for image in edit_profile %}
                       <img alt="image" src="{{image.image.url}}" class="rounded-circle author-box-picture" height="100" width="120">
                       {% comment %} <img alt="image" src="{% static 'img/passport.png'%}" class="rounded-circle author-box-picture" height="100" width="120"> {% endcomment %}
-                      {% comment %} {%endfor%} {% endcomment %}
+                      {%endfor%}
                       
                       <div class="clearfix"></div>
                       <div class="author-box-name">
