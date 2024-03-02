@@ -171,15 +171,17 @@ STATICFILES_DIRS=[
 ]
 STATIC_ROOT=BASE_DIR /'static'
 STATIC_ROOT=BASE_DIR /'staticfiles'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR /'media'
 
-
-
+CLOUDINARY_URL =config('CLOUDINARY_URL') 
+DEFAULT_FILE_STORAGE ='cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 
