@@ -109,18 +109,6 @@ else:
 
 
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": os.environ.get('DB_NAME'),
-#         "USER": os.environ.get('DB_USER'),
-#         "PASSWORD": os.environ.get('DB_PASSWORD'),
-#         "HOST": os.environ.get('DB_HOST'),
-#         "PORT": "5432",
-#     }
-# }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -154,9 +142,6 @@ USE_TZ = True
 
 
 
-
-
-
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS ={
     messages.ERROR: 'danger',
@@ -186,7 +171,16 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # MEDIA SETTINGS
 
-CLOUDINARY_URL =config('CLOUDINARY_URL') 
+# CLOUDINARY_URL =config('CLOUDINARY_URL') 
+CLOUDINARY_URL='cloudinary://748638977192752:mMjS7xsAMKoM-jfo0GAF2rxpxQQ@dgys5gddp'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUD_NAME'),
+    'API_KEY': config('API_KEY'),
+    'API_SECRET': config('API_SECRET'),
+}
+
+
 DEFAULT_FILE_STORAGE ='cloudinary_storage.storage.RawMediaCloudinaryStorage'
 MEDIA_URL = '/mycurriculum/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

@@ -21,8 +21,8 @@
                     <div class="author-box-center">
 
                       {% comment %} {% for image in edit_profile %} {% endcomment %}
-                      {% comment %} <img alt="image" src="{{image.image.url}}" class="rounded-circle author-box-picture" height="100" width="120"> {% endcomment %}
-                      <img alt="image" src="{% static 'img/passport.png'%}" class="rounded-circle author-box-picture" height="100" width="120">
+                      <img alt="image" src="{{image.image.url}}" class="rounded-circle author-box-picture" height="100" width="120">
+                      {% comment %} <img alt="image" src="{% static 'img/passport.png'%}" class="rounded-circle author-box-picture" height="100" width="120"> {% endcomment %}
                       {% comment %} {%endfor%} {% endcomment %}
                       
                       <div class="clearfix"></div>
