@@ -25,7 +25,7 @@ urlpatterns = [
     path('horenadmin/', admin.site.urls),
     path('', views.index, name='index'),
     path('cvitae/', include('cvitae.urls')),
-     path('current_year', views.current_year, name='current_year'),
+    path('current_year', views.current_year, name='current_year'),
 ]
 
 

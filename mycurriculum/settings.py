@@ -33,8 +33,7 @@ SECRET_KEY =('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
-    
-# ALLOWED_HOSTS = ['*']
+
 ALLOWED_HOSTS = ['127.0.0.1', 'lawal-resume.onrender.com']
 
 
@@ -106,7 +105,7 @@ else:
         }
     }
     
-    
+# POSTGRES DATABASE SETUP ON RENDER.COM   
 DATABASES = {
 'default': dj_database_url.parse(env('DATABASE_URL'))
 } 
@@ -154,18 +153,11 @@ MESSAGE_TAGS ={
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
+
+
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = BASE_DIR/'staticfiles'
-
-# STATICFILES_DIRS=[
-#     'mycurriculum/static',
-# ]
 STATIC_ROOT=BASE_DIR /'static'
-# STATIC_ROOT=BASE_DIR /'staticfiles'
 
-
-
-# BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -173,10 +165,10 @@ if not DEBUG:
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-# MEDIA SETTINGS
+
+#CLOUDINARY SETUP 
 
 CLOUDINARY_URL = config('CLOUDINARY_URL') 
-# CLOUDINARY_URL='cloudinary://748638977192752:mMjS7xsAMKoM-jfo0GAF2rxpxQQ@dgys5gddp'
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUD_NAME'),
@@ -184,6 +176,7 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': config('API_SECRET'),
 }
 
+# CLOUDINARY SETUP FOR MEDIA
 
 DEFAULT_FILE_STORAGE ='cloudinary_storage.storage.RawMediaCloudinaryStorage'
 MEDIA_URL = '/mycurriculum/media/'
@@ -201,7 +194,8 @@ STORAGES = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-       
+
+# EMAIL SETUP FOR SENDER AND RECEIVER       
 EMAIL_BACKEND       = config('EMAIL_BACKEND')   
 EMAIL_HOST          = config('EMAIL_HOST')  
 EMAIL_PORT          = config('EMAIL_PORT', cast=int) 
