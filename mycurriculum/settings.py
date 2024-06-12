@@ -107,7 +107,7 @@ else:
     
 # # POSTGRES DATABASE SETUP ON RENDER.COM   
 # DATABASES = {
-# 'default': dj_database_url.parse(env('postgres://lawaldatabase_user:w3BJk4mjIGVTIFgqvkhat367FoFBdv9r@dpg-cpkqaoi0si5c73cvtjp0-a.oregon-postgres.render.com/lawaldatabase'))
+# 'default': dj_database_url.parse(env('DATABASE_URL'))
 # } 
 
 
