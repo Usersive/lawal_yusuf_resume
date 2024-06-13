@@ -124,30 +124,6 @@ else:
 # 'default': dj_database_url.parse(env('DATABASE_URL'))
 # } 
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-try:
-    DEBUG = os.getenv('DEBUG', 'False') == 'True'
-    database_url = os.getenv('DATABASE_URL')
-
-    if not DEBUG:
-        if not database_url:
-            raise ValueError("DATABASE_URL is not set in the environment variables.")
-        
-        DATABASES = {
-            'default': dj_database_url.parse(database_url)
-        }
-    else:
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': BASE_DIR / 'db.sqlite3',
-            }
-        }
-except Exception as e:
-    logger.error(f"An error occurred while setting up the database configuration: {e}")
-    raise
 
 
 
