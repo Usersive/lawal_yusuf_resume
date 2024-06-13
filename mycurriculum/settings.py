@@ -34,6 +34,7 @@ SECRET_KEY =('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
+# DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'lawal-resume.onrender.com']
 
@@ -48,10 +49,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.staticfiles',
     'django.contrib.messages',
-    'cvitae',
     'admin_honeypot',
     'cloudinary_storage',
     'cloudinary',
+    'cvitae',
 ]
 
 MIDDLEWARE = [
@@ -93,36 +94,28 @@ AUTH_USER_MODEL = 'cvitae.Account'
 
 
 
-# if not DEBUG:
-#     DATABASES = {
-#     'default': dj_database_url.parse(env('DATABASE_URL'))
-# }   
-# else:
-
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
-
-
 if not DEBUG:
     DATABASES = {
-        'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
-    }
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}   
 else:
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
+
+
+
+
     
 # # POSTGRES DATABASE SETUP ON RENDER.COM   
-# DATABASES = {
-# 'default': dj_database_url.parse(env('DATABASE_URL'))
-# } 
+DATABASES = {
+'default': dj_database_url.parse(env('DATABASE_URL'))
+}
 
 
 
