@@ -107,20 +107,7 @@ else:
         }
     }
 
-# Replace the SQLite DATABASES configuration with PostgreSQL:
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         # Replace this value with your local database's connection string.
-#         default='postgresql://horendb_user:pYZAnMmSilxD9ovCRp6TmZDOyspSUNsT@dpg-cqa2dkaju9rs73bd0tpg-a.oregon-postgres.render.com/horendb',
-       
-#     )
-# }
-# DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
+
 
     
 # # POSTGRES DATABASE SETUP ON RENDER.COM   
