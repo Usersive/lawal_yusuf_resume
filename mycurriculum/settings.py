@@ -213,10 +213,10 @@ EMAIL_USE_TLS       = config('EMAIL_USE_TLS', cast=bool)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DATABASE_NAME'),  # Replace with your actual database name
-        'USER': config('USER'),  # Replace with your Supabase username
-        'PASSWORD': config('PASSWORD'),  # Replace with your Supabase password
-        'HOST': config('HOST'),  # Replace with your Supabase host
-        'PORT': config('PORT'),  # Default PostgreSQL port
+        'NAME': config('DATABASE_NAME'), 
+        'USER': config('USER'),  
+        'PASSWORD': config('PASSWORD'),  
+        'HOST': config('HOST'),  
+        'PORT': config('PORT'),  
     }
 }
