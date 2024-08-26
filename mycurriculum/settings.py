@@ -80,7 +80,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'mycurriculum.date.current_year',
-            ],
+            ], 
         },
     },
 ]
@@ -94,26 +94,26 @@ AUTH_USER_MODEL = 'cvitae.Account'
 
 
 
-if not DEBUG:
-    DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-}   
-else:
+# if not DEBUG:
+#     DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+# }   
+# else:
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
 
 
 
     
-# # POSTGRES DATABASE SETUP ON RENDER.COM   
-DATABASES = {
-'default': dj_database_url.parse(env('DATABASE_URL'))
-}
+# # # POSTGRES DATABASE SETUP ON RENDER.COM   
+# DATABASES = {
+# 'default': dj_database_url.parse(env('DATABASE_URL'))
+# }
 
 
 
@@ -210,3 +210,13 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS       = config('EMAIL_USE_TLS', cast=bool)
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DATABASE_NAME'),  # Replace with your actual database name
+        'USER': config('USER'),  # Replace with your Supabase username
+        'PASSWORD': config('PASSWORD'),  # Replace with your Supabase password
+        'HOST': config('HOST'),  # Replace with your Supabase host
+        'PORT': config('PORT'),  # Default PostgreSQL port
+    }
+}
