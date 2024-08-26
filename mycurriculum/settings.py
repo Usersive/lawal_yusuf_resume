@@ -36,7 +36,7 @@ DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
 # DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'lawal-resume.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'https://lawal-resume.onrender.com']
 
 
 # Application definition
